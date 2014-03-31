@@ -8,6 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300" VerticalAlignment="Stretch">
     <UserControl.Resources>
         <Style TargetType="map:Pushpin">
+            <Setter Property="ToolTip" Value="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="map:Pushpin">
