@@ -1,0 +1,25 @@
+﻿<Window x:Class="WPFApplication.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cal="http://www.codeplex.com/CompositeWPF"
+        Title="Shell" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ItemsControl x:Name="Top" cal:RegionManager.RegionName="Header">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="Control">
+                    <Setter Property="DockPanel.Dock" Value="Top"></Setter>
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+        <ContentControl x:Name="Main"  Grid.Row="1" cal:RegionManager.RegionName="Main"/>
+    </Grid>
+</Window>

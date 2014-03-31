@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                assembly="GeoDataServiceLib"
+                namespace="Ut.Data">
+  <class name="IssueItem" table="IssueItem" lazy="false">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Title" />
+    <property name="Content" />
+    <property name="WKT" />
+    <property name="Created" />
+  </class>
+</hibernate-mapping>
