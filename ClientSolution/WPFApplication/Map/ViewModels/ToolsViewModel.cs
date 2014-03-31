@@ -13,7 +13,7 @@ namespace WPFApplication.Map.ViewModels
     public class ToolsViewModel : NotificationObject, IToolsVIewModel
     {
         private IRegionManager _regionManager;
-
+        private Uri _addViewUri = new Uri("AddView", UriKind.Relative);
         public ToolsViewModel(IRegionManager regionManager)
         {
             _regionManager = regionManager;
@@ -23,8 +23,26 @@ namespace WPFApplication.Map.ViewModels
         {
             get 
             {
-                return new DelegateCommand(() => { System.Windows.MessageBox.Show("Hello Dude!"); }); 
-            
+                return new DelegateCommand(() => {
+                    _regionManager.RequestNavigate("Main", new Uri("AddView", UriKind.Relative), (result) =>
+                    {
+                        Console.WriteLine();
+                    });
+                }); 
+            }
+        }
+
+        public ICommand ShowMapCommand
+        {
+            get
+            {
+                return new DelegateCommand(() =>
+                {
+                    _regionManager.RequestNavigate("Main", new Uri("MapView", UriKind.Relative), (result) =>
+                    {
+                        Console.WriteLine();
+                    });
+                });
             }
         }
     }

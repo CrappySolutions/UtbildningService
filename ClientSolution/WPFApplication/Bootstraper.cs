@@ -20,6 +20,7 @@ namespace WPFApplication
         protected override void InitializeShell()
         {
             base.InitializeShell();
+            Container.RegisterType<DataService.IGeoDataService, DataService.GeoDataServiceClient>(new InjectionConstructor());
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
         }
@@ -28,6 +29,7 @@ namespace WPFApplication
         {
             ModuleCatalog catalog = new ModuleCatalog();
             catalog.AddModule(typeof(Map.MapModule));
+            catalog.AddModule(typeof(Issues.IssuesModule));
             return catalog;
         }
 

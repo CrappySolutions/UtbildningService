@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPFApplication.Map
+namespace WPFApplication.Issues
 {
-    public class MapModule : IModule
+    public class IssuesModule : IModule
     {
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _container;
-        public MapModule(IRegionManager manager, IUnityContainer container)
+        public IssuesModule(IRegionManager manager, IUnityContainer container)
         {
             _regionManager = manager;
             _container = container;
@@ -21,10 +21,8 @@ namespace WPFApplication.Map
 
         public void Initialize()
         {
-            _container.RegisterType<Map.ViewModels.IMapViewModel, Map.ViewModels.MapViewModel>();
-            _container.RegisterType<Map.ViewModels.IToolsVIewModel, Map.ViewModels.ToolsViewModel>();
-            _regionManager.RegisterViewWithRegion("Header", typeof(Views.ToolsView));
-            _regionManager.RegisterViewWithRegion("Main", typeof(Views.MapView));
+            _container.RegisterType<ViewModels.IAddViewModel, ViewModels.AddViewModel>();
+            _regionManager.RegisterViewWithRegion("Main", typeof(Views.AddView));
         }
     }
 }

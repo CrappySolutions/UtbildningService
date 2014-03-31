@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WPFApplication.Issues.Views.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>   
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label>Titel</Label>
+        <TextBox Text="{Binding Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1"/>
+        <Label Grid.Row="1">Text</Label>
+        <TextBox Text="{Binding Content, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1"/>
+        <Button Command="{Binding AddCommand, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.ColumnSpan="2">
+            <TextBlock>Lägg till</TextBlock>
+        </Button>
+    </Grid>
+</UserControl>
