@@ -9,12 +9,38 @@ namespace Ut
 {
     [ServiceBehavior(InstanceContextMode=InstanceContextMode.PerCall, ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class GeoDataService 
-        : IGeoDataService
+        : IGeoDataService, IDisposable
     {
+        public GeoDataService() { }
 
-        string IGeoDataService.SayHello()
+        bool IGeoDataService.AddIssue(IssueItem issue)
         {
-            return "Hello";
+            throw new NotImplementedException();
+        }
+
+        bool IGeoDataService.UpdateIssue(IssueItem issue)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IGeoDataService.RemoveIssueBy(int issueId)
+        {
+            throw new NotImplementedException();
+        }
+
+        ICollection<IssueItem> IGeoDataService.GetAllIssues()
+        {
+            throw new NotImplementedException();
+        }
+
+        IssueItem IGeoDataService.GetItemBy(int issueId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
