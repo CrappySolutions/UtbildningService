@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Ut.Data;
 
 namespace Ut
 {
@@ -11,11 +12,22 @@ namespace Ut
     public class GeoDataService 
         : IGeoDataService, IDisposable
     {
-        public GeoDataService() { }
+        private readonly Data.Store _store;
+
+        public GeoDataService() { _store = new Store(); }
 
         bool IGeoDataService.AddIssue(IssueItem issue)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _store.Add(issue);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+            
         }
 
         bool IGeoDataService.UpdateIssue(IssueItem issue)
@@ -30,7 +42,7 @@ namespace Ut
 
         ICollection<IssueItem> IGeoDataService.GetAllIssues()
         {
-            throw new NotImplementedException();
+            return _store.GetAllIssues();
         }
 
         IssueItem IGeoDataService.GetItemBy(int issueId)
@@ -40,7 +52,7 @@ namespace Ut
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _store.Dispose();
         }
     }
 }

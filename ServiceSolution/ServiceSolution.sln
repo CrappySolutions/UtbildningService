@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoDataServiceLib", "GeoDat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructionBenshWeb", "ConstructionBenshWeb\ConstructionBenshWeb.csproj", "{77E18835-1A35-4276-BD0E-64464F7827A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{A585EAF6-986B-42B9-B1EB-055790D448D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{77E18835-1A35-4276-BD0E-64464F7827A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77E18835-1A35-4276-BD0E-64464F7827A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77E18835-1A35-4276-BD0E-64464F7827A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A585EAF6-986B-42B9-B1EB-055790D448D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A585EAF6-986B-42B9-B1EB-055790D448D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A585EAF6-986B-42B9-B1EB-055790D448D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A585EAF6-986B-42B9-B1EB-055790D448D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
