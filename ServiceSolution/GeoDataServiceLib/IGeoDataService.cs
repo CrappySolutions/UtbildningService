@@ -11,6 +11,6 @@ namespace Ut
     public interface IGeoDataService
     {
         [OperationContract]
-        public string SayHello();
+        string SayHello();
     }
 }
