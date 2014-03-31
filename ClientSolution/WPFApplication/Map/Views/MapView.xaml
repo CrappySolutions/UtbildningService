@@ -6,7 +6,18 @@
              xmlns:map="clr-namespace:MapControl;assembly=MapControl.WPF"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" VerticalAlignment="Stretch">
+    <UserControl.Resources>
+        <Style TargetType="map:Pushpin">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="map:Pushpin">
+                        <Ellipse Width="32" Height="32" Fill="Green" Stroke="Black" StrokeThickness="1" Opacity="0.6" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid VerticalAlignment="Stretch">
-        <map:Map></map:Map>   
+        <map:Map x:Name="map"></map:Map>
     </Grid>
 </UserControl>

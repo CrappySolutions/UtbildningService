@@ -21,9 +21,10 @@ namespace WPFApplication.Map
 
         public void Initialize()
         {
+            _container.RegisterType<DataService.IGeoDataService, DataService.GeoDataServiceClient>(new InjectionConstructor());
+            _container.RegisterType<Map.ViewModels.IMapViewModel, Map.ViewModels.MapViewModel>();
             _container.RegisterType<Map.ViewModels.IToolsVIewModel, Map.ViewModels.ToolsViewModel>();
             _regionManager.RegisterViewWithRegion("Header", typeof(Views.ToolsView));
-            //_regionManager.RegisterViewWithRegion("Header", typeof(Views.StatusView));
             _regionManager.RegisterViewWithRegion("Main", typeof(Views.MapView));
         }
     }
