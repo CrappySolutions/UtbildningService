@@ -12,7 +12,7 @@ namespace Ut
         static void Main(string[] args)
         {
 
-            using (var serviceHost = new ServiceHost(typeof(GeoDataService), new Uri[] {new Uri("http://localhost:5678/" }))) 
+            using (var serviceHost = new ServiceHost(typeof(GeoDataService), new Uri[] {new Uri("http://localhost:5678/") })) 
             {
                 
             }
