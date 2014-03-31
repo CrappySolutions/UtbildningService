@@ -92,6 +92,7 @@
     <Compile Include="Bootstraper.cs" />
     <Compile Include="Map\MapModule.cs" />
     <Compile Include="Map\ViewModels\MapViewModel.cs" />
+    <Compile Include="Map\ViewModels\ToolsViewModel.cs" />
     <Compile Include="Map\Views\MapView.xaml.cs">
       <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>

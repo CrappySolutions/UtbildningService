@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Practices.Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace WPFApplication.Map.Views
     /// </summary>
     public partial class ToolsView : UserControl
     {
-        public ToolsView()
+        
+        public ToolsView(ViewModels.IToolsVIewModel toolsViewModel)
         {
             InitializeComponent();
+            DataContext = toolsViewModel;
         }
     }
 }
