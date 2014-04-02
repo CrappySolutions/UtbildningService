@@ -126,11 +126,11 @@ namespace CommonLib.AwesomeService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AwesomeService.IGeoDataService", CallbackContract=typeof(CommonLib.AwesomeService.IGeoDataServiceCallback))]
     public interface IGeoDataService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/AddIssue", ReplyAction="http://tempuri.org/IGeoDataService/AddIssueResponse")]
-        bool AddIssue(CommonLib.AwesomeService.IssueItem issue);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGeoDataService/AddIssue")]
+        void AddIssue(CommonLib.AwesomeService.IssueItem issue);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/AddIssue", ReplyAction="http://tempuri.org/IGeoDataService/AddIssueResponse")]
-        System.Threading.Tasks.Task<bool> AddIssueAsync(CommonLib.AwesomeService.IssueItem issue);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGeoDataService/AddIssue")]
+        System.Threading.Tasks.Task AddIssueAsync(CommonLib.AwesomeService.IssueItem issue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/UpdateIssue", ReplyAction="http://tempuri.org/IGeoDataService/UpdateIssueResponse")]
         bool UpdateIssue(CommonLib.AwesomeService.IssueItem issue);
@@ -192,11 +192,11 @@ namespace CommonLib.AwesomeService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool AddIssue(CommonLib.AwesomeService.IssueItem issue) {
-            return base.Channel.AddIssue(issue);
+        public void AddIssue(CommonLib.AwesomeService.IssueItem issue) {
+            base.Channel.AddIssue(issue);
         }
         
-        public System.Threading.Tasks.Task<bool> AddIssueAsync(CommonLib.AwesomeService.IssueItem issue) {
+        public System.Threading.Tasks.Task AddIssueAsync(CommonLib.AwesomeService.IssueItem issue) {
             return base.Channel.AddIssueAsync(issue);
         }
         

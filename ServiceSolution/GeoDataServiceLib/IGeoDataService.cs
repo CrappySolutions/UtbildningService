@@ -11,8 +11,8 @@ namespace Ut
     [ServiceContract(CallbackContract=typeof(IGeoDataCallback))]
     public interface IGeoDataService
     {
-        [OperationContract]
-        bool AddIssue(IssueItem issue);
+        [OperationContract(IsOneWay=true)]
+        void AddIssue(IssueItem issue);
 
         [OperationContract]
         bool UpdateIssue(IssueItem issue);

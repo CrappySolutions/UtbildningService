@@ -16,7 +16,7 @@ namespace Ut
 
         public GeoDataService() { _store = new Store(); }
 
-        bool IGeoDataService.AddIssue(IssueItem issue)
+        void IGeoDataService.AddIssue(IssueItem issue)
         {
             try
             {
@@ -25,9 +25,7 @@ namespace Ut
             }
             catch (Exception)
             {
-                return false;
             }
-            return true;
             
         }
 

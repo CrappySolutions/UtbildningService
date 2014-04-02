@@ -46,7 +46,7 @@ namespace MapLib.ViewModel
         {
             get
             {
-                return new RelayCommand<Location>((loc) => { MessengerInstance.Send<IssueGeom>(new IssueGeom { type = "point", coordinates = new List<double> { loc.Latitude, loc.Longitude } }); });
+                return new RelayCommand<Location>((loc) => { MessengerInstance.Send<IssueGeom>(new IssueGeom { type = "point", coordinates = new List<double> { loc.Longitude, loc.Latitude } }); });
             }
         }
 
