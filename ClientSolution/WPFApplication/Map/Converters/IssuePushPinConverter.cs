@@ -25,12 +25,21 @@ namespace WPFApplication.Map.Converters
             throw new NotImplementedException();
         }
 
-        class IssueGeom
-        {
-            public string type { get; set; }
-
-            public List<double> coordinates { get; set; }
-        }
+        
     }
 
+    public class IssueGeom
+    {
+        public string type { get; set; }
+
+        public List<double> coordinates { get; set; }
+
+        public IssueGeom() { }
+
+        public IssueGeom(string type, IEnumerable<double> coords)
+        {
+            this.type = type;
+            this.coordinates = new List<double>(coords);
+        }
+    }
 }

@@ -21,8 +21,11 @@ namespace WPFApplication.Issues
 
         public void Initialize()
         {
-            _container.RegisterType<ViewModels.IAddViewModel, ViewModels.AddViewModel>();
-            _regionManager.RegisterViewWithRegion("Main", typeof(Views.AddView));
+            _container.RegisterType<object, Views.AddView>("AddView");
+            _container.RegisterType<object, Views.AddToolsView>("AddToolsView");
+            _container.RegisterType<ViewModels.IAddViewModel, ViewModels.AddViewModel>(new ContainerControlledLifetimeManager());
+            _regionManager.RegisterViewWithRegion(RegionNames.HEADER, typeof(Views.AddToolsView));
+            _regionManager.RegisterViewWithRegion(RegionNames.MAIN, typeof(Views.AddView));
         }
     }
 }

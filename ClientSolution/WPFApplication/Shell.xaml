@@ -36,18 +36,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <ItemsControl x:Name="Top" cal:RegionManager.RegionName="Header">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <DockPanel IsItemsHost="True" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemContainerStyle>
-                        <Style TargetType="Control">
-                            <Setter Property="DockPanel.Dock" Value="Top"></Setter>
-                        </Style>
-                    </ItemsControl.ItemContainerStyle>
-                </ItemsControl>
+                <ContentControl x:Name="Top" cal:RegionManager.RegionName="Header" />
                 <ContentControl x:Name="Main"  Grid.Row="1" cal:RegionManager.RegionName="Main"/>
             </Grid>
         </Grid>

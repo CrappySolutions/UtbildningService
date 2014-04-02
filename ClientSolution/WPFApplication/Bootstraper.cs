@@ -32,7 +32,11 @@ namespace WPFApplication
             catalog.AddModule(typeof(Issues.IssuesModule));
             return catalog;
         }
+    }
 
-        
+    public static class RegionNames
+    {
+        public const string HEADER = "Header";
+        public const string MAIN = "Main";
     }
 }

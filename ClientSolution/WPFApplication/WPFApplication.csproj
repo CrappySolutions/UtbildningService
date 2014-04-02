@@ -99,6 +99,9 @@
     <Compile Include="Bootstraper.cs" />
     <Compile Include="Issues\IssuesModule.cs" />
     <Compile Include="Issues\ViewModels\AddViewModel.cs" />
+    <Compile Include="Issues\Views\AddToolsView.xaml.cs">
+      <DependentUpon>AddToolsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Issues\Views\AddView.xaml.cs">
       <DependentUpon>AddView.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Issues\Views\AddToolsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Issues\Views\AddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

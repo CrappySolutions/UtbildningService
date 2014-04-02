@@ -24,25 +24,10 @@ namespace WPFApplication.Map.ViewModels
             get 
             {
                 return new DelegateCommand(() => {
-                    _regionManager.RequestNavigate("Main", new Uri("AddView", UriKind.Relative), (result) =>
-                    {
-                        Console.WriteLine();
-                    });
+                    var a  = typeof(Issues.Views.AddToolsView).FullName;
+                    _regionManager.Regions[RegionNames.HEADER].RequestNavigate("AddToolsView");
+                    _regionManager.Regions[RegionNames.MAIN].RequestNavigate("AddView");
                 }); 
-            }
-        }
-
-        public ICommand ShowMapCommand
-        {
-            get
-            {
-                return new DelegateCommand(() =>
-                {
-                    _regionManager.RequestNavigate("Main", new Uri("MapView", UriKind.Relative), (result) =>
-                    {
-                        Console.WriteLine();
-                    });
-                });
             }
         }
     }

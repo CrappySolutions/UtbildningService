@@ -9,8 +9,5 @@
         <Button Command="{Binding ShowAddCommand}" >
             <TextBlock>Lägg till</TextBlock>
         </Button>
-        <Button Command="{Binding ShowMapCommand}">
-            <TextBlock>Visa karta</TextBlock>
-        </Button>
     </ToolBar>
 </UserControl>
