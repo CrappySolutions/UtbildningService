@@ -1,5 +1,6 @@
 ﻿using CommonLib;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using MapControl;
 using Microsoft.Practices.Prism.Regions;
@@ -9,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MapLib.ViewModel
 {
@@ -39,6 +41,14 @@ namespace MapLib.ViewModel
         }
 
         public ObservableCollection<CommonLib.AwesomeService.IssueItem> Issues { get; set; }
+
+        public ICommand PositionateCommand
+        {
+            get
+            {
+                return new RelayCommand<Location>((loc) => { MessengerInstance.Send<IssueGeom>(new IssueGeom { type = "point", coordinates = new List<double> { loc.Latitude, loc.Longitude } }); });
+            }
+        }
 
         public MapViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
             : base(messenger)
