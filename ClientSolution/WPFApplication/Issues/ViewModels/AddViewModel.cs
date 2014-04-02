@@ -16,11 +16,10 @@ namespace WPFApplication.Issues.ViewModels
         : DataService.IssueItem, IAddViewModel, INavigationAware
     {
         private DataService.IGeoDataService _service;
-        private IRegionManager _regionManager;
-         
-        public AddViewModel(IRegionManager regionManager, DataService.IGeoDataService service)
+        private readonly INavigationResolver _resolver;
+        public AddViewModel(INavigationResolver navigationResolver, DataService.IGeoDataService service)
         {
-            _regionManager = regionManager;
+            _resolver = navigationResolver;
             _service = service;
         }
 
@@ -29,15 +28,16 @@ namespace WPFApplication.Issues.ViewModels
             get 
             {
                 return new DelegateCommand(() => {
+                    _resolver.RequestPosition();
+
                     if (IsMapVisible)
                     {
-                        var uriQuery = new UriQuery();
-                        uriQuery.Add("Positionate", "True");
-                        _regionManager.RequestNavigate(RegionNames.MAIN, new Uri("MapView" + uriQuery.ToString(), UriKind.Relative));
+                        _resolver.RequestPosition();
                     }
                     else 
                     {
-                        _regionManager.RequestNavigate(RegionNames.MAIN, new Uri("AddView", UriKind.Relative));
+                        _resolver.ShowAddIssue();
+                       
                     }
                 }); 
             }
@@ -105,8 +105,7 @@ namespace WPFApplication.Issues.ViewModels
 
         private void NavigateAndClear()
         {
-            _regionManager.RequestNavigate(RegionNames.HEADER, new Uri("ToolsView", UriKind.Relative));
-            _regionManager.RequestNavigate(RegionNames.MAIN, new Uri("MapView", UriKind.Relative));
+            _resolver.ShowMap(true);
             Title = string.Empty;
             Content = string.Empty;
             this.WKT = string.Empty;

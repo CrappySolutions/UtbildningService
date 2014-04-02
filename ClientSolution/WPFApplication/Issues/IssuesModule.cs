@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace WPFApplication.Issues
 {
-    public class IssuesModule : IModule
+    public class IssuesModule 
+        : IModule
     {
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _container;

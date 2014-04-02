@@ -20,6 +20,7 @@ namespace WPFApplication
         protected override void InitializeShell()
         {
             base.InitializeShell();
+            Container.RegisterType<INavigationResolver, NavigationResolver>();
             Container.RegisterType<DataService.IGeoDataService, DataService.GeoDataServiceClient>(new InjectionConstructor());
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();

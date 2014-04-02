@@ -12,11 +12,11 @@ namespace WPFApplication.Map.ViewModels
 {
     public class ToolsViewModel : NotificationObject, IToolsVIewModel
     {
-        private IRegionManager _regionManager;
+        private INavigationResolver _resolver;
         private Uri _addViewUri = new Uri("AddView", UriKind.Relative);
-        public ToolsViewModel(IRegionManager regionManager)
+        public ToolsViewModel(INavigationResolver resolver)
         {
-            _regionManager = regionManager;
+            _resolver = resolver;
         }
 
         public ICommand ShowAddCommand
@@ -24,9 +24,7 @@ namespace WPFApplication.Map.ViewModels
             get 
             {
                 return new DelegateCommand(() => {
-                    var a  = typeof(Issues.Views.AddToolsView).FullName;
-                    _regionManager.Regions[RegionNames.HEADER].RequestNavigate("AddToolsView");
-                    _regionManager.Regions[RegionNames.MAIN].RequestNavigate("AddView");
+                    _resolver.ShowAddIssue(true);
                 }); 
             }
         }

@@ -16,7 +16,7 @@ namespace WPFApplication.Map.ViewModels
     public class MapViewModel : NotificationObject, IMapViewModel, Microsoft.Practices.Prism.Regions.INavigationAware
     {
         private DataService.IGeoDataService _service;
-        private IRegionManager _regionManager;
+        private INavigationResolver _resolver;
 
         public ObservableCollection<DataService.IssueItem> Issues { get; set; }
 
@@ -36,18 +36,17 @@ namespace WPFApplication.Map.ViewModels
             get 
             {
                 return new DelegateCommand<Location>((loc) => {
+
                     var geom = Newtonsoft.Json.JsonConvert.SerializeObject(new Converters.IssueGeom("Point", new double[] { loc.Latitude, loc.Longitude }));
-                    var uriQuery = new UriQuery();
-                    uriQuery.Add("Geom", geom);
-                    _regionManager.RequestNavigate(RegionNames.MAIN, new Uri("AddView" + uriQuery.ToString(), UriKind.Relative));
+                    _resolver.ShowAddIssueWithGeom(geom);
                 }); 
             }
         }
 
 
-        public MapViewModel(IRegionManager regionManager, DataService.IGeoDataService service) 
+        public MapViewModel(INavigationResolver resolver, DataService.IGeoDataService service) 
         {
-            _regionManager = regionManager;
+            _resolver = resolver;
             _service = service;
             Issues = new ObservableCollection<DataService.IssueItem>();
             InitData();
