@@ -11,5 +11,6 @@ namespace CommonLib
         public const string HEADER = "Header";
         public const string MAIN = "Main";
         public const string FOOTER = "Footer";
+        public const string LEFT = "Left";
     }
 }

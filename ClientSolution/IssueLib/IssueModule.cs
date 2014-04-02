@@ -22,7 +22,7 @@ namespace IssueLib
         public void Initialize()
         {
             _container.RegisterType<ViewModel.IIssueListViewModel, ViewModel.IssueListViewModel>(new ContainerControlledLifetimeManager());
-            _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.MAIN, typeof(View.IssueList));
+            _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.LEFT, typeof(View.IssueList));
         }
     }
 }
