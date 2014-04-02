@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
+using MapControl;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MapLib.ViewModel
 {
-    public class MapViewModel : ViewModelBase, INavigationAware
+    public class MapViewModel : ViewModelBase, INavigationAware, IMapViewModel
     {
         private View.MapView.MapMode _mode = View.MapView.MapMode.Standard;
         public View.MapView.MapMode Mode
@@ -21,6 +22,18 @@ namespace MapLib.ViewModel
                 RaisePropertyChanged("Mode");
             }
         }
+
+        private Location _mouseLocation;
+        public Location MouseLocation
+        {
+            get { return _mouseLocation; }
+            set 
+            {
+                _mouseLocation = value;
+                RaisePropertyChanged(() => MouseLocation);
+            }
+        }
+        
 
         bool Microsoft.Practices.Prism.Regions.INavigationAware.IsNavigationTarget(Microsoft.Practices.Prism.Regions.NavigationContext navigationContext)
         {
@@ -42,5 +55,10 @@ namespace MapLib.ViewModel
         {
 
         }
+    }
+
+    public interface IMapViewModel
+    {
+
     }
 }

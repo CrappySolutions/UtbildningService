@@ -35,10 +35,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <ContentControl x:Name="Top" cal:RegionManager.RegionName="Header" />
                 <ContentControl x:Name="Main"  Grid.Row="1" cal:RegionManager.RegionName="Main"/>
-                <ContentControl x:Name="Bottom"  Grid.Row="1" cal:RegionManager.RegionName="Footer"/>
+                <ContentControl x:Name="Bottom"  Grid.Row="2" cal:RegionManager.RegionName="Footer"/>
             </Grid>
         </Grid>
     </Border>

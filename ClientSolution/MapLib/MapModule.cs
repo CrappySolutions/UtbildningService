@@ -21,7 +21,9 @@ namespace MapLib
 
         public void Initialize()
         {
+            _container.RegisterType<MapLib.ViewModel.IMapViewModel, MapLib.ViewModel.MapViewModel>(new ContainerControlledLifetimeManager());
             _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.MAIN, typeof(View.MapView));
+            _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.FOOTER, typeof(View.StatusView));
         }
     }
 }
