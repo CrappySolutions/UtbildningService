@@ -123,7 +123,7 @@ namespace CommonLib.AwesomeService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AwesomeService.IGeoDataService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AwesomeService.IGeoDataService", CallbackContract=typeof(CommonLib.AwesomeService.IGeoDataServiceCallback))]
     public interface IGeoDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/AddIssue", ReplyAction="http://tempuri.org/IGeoDataService/AddIssueResponse")]
@@ -158,30 +158,38 @@ namespace CommonLib.AwesomeService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IGeoDataServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGeoDataService/IssueAdded")]
+        void IssueAdded(CommonLib.AwesomeService.IssueItem issue);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IGeoDataServiceChannel : CommonLib.AwesomeService.IGeoDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GeoDataServiceClient : System.ServiceModel.ClientBase<CommonLib.AwesomeService.IGeoDataService>, CommonLib.AwesomeService.IGeoDataService {
+    public partial class GeoDataServiceClient : System.ServiceModel.DuplexClientBase<CommonLib.AwesomeService.IGeoDataService>, CommonLib.AwesomeService.IGeoDataService {
         
-        public GeoDataServiceClient() {
+        public GeoDataServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public GeoDataServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public GeoDataServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public GeoDataServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public GeoDataServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public GeoDataServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public GeoDataServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public GeoDataServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public GeoDataServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
         public bool AddIssue(CommonLib.AwesomeService.IssueItem issue) {

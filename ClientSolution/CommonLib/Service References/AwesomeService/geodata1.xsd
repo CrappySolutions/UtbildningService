@@ -69,4 +69,11 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IssueAdded">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Ut.Data" minOccurs="0" name="issue" nillable="true" type="q5:IssueItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

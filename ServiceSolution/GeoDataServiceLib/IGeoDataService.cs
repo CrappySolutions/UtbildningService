@@ -8,7 +8,7 @@ using Ut.Data;
 
 namespace Ut
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract=typeof(IGeoDataCallback))]
     public interface IGeoDataService
     {
         [OperationContract]
@@ -26,5 +26,11 @@ namespace Ut
         [OperationContract]
         IssueItem GetItemBy(int issueId);
 
+    }
+
+    public interface IGeoDataCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void IssueAdded(IssueItem issue);
     }
 }

@@ -21,6 +21,7 @@ namespace Ut
             try
             {
                 _store.Add(issue);
+                OperationContext.Current.GetCallbackChannel<IGeoDataCallback>().IssueAdded(issue);
             }
             catch (Exception)
             {
