@@ -97,25 +97,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstraper.cs" />
-    <Compile Include="Issues\IssuesModule.cs" />
-    <Compile Include="Issues\ViewModels\AddViewModel.cs" />
-    <Compile Include="Issues\Views\AddToolsView.xaml.cs">
-      <DependentUpon>AddToolsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Issues\Views\AddView.xaml.cs">
-      <DependentUpon>AddView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Map\Converters\IssuePushPinConverter.cs" />
-    <Compile Include="Map\MapModule.cs" />
-    <Compile Include="Map\ViewModels\MapViewModel.cs" />
-    <Compile Include="Map\ViewModels\ToolsViewModel.cs" />
-    <Compile Include="Map\Views\MapView.xaml.cs">
-      <DependentUpon>MapView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Map\Views\ToolsView.xaml.cs">
-      <DependentUpon>ToolsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NavigationResolver.cs" />
     <Compile Include="Service References\DataService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,22 +148,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Issues\Views\AddToolsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Issues\Views\AddView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Map\Views\MapView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Map\Views\ToolsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Shell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -211,6 +176,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\map.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MapLib\MapLib.csproj">
+      <Project>{3e222c30-bc92-48fc-8e00-bac42d1409bf}</Project>
+      <Name>MapLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
