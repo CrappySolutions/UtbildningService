@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IssueGeom.cs" />
     <Compile Include="IssueRepository.cs" />
     <Compile Include="MapMode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

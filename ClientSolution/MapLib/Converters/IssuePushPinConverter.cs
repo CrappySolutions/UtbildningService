@@ -1,4 +1,5 @@
-﻿using MapControl;
+﻿using CommonLib;
+using MapControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,18 +29,4 @@ namespace MapLib.Converters
         
     }
 
-    public class IssueGeom
-    {
-        public string type { get; set; }
-
-        public List<double> coordinates { get; set; }
-
-        public IssueGeom() { }
-
-        public IssueGeom(string type, IEnumerable<double> coords)
-        {
-            this.type = type;
-            this.coordinates = new List<double>(coords);
-        }
-    }
 }
