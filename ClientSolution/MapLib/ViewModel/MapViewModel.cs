@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CommonLib;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using MapControl;
 using Microsoft.Practices.Prism.Regions;
@@ -13,8 +14,10 @@ namespace MapLib.ViewModel
 {
     public class MapViewModel : ViewModelBase, INavigationAware, IMapViewModel
     {
-        private View.MapView.MapMode _mode = View.MapView.MapMode.Standard;
-        public View.MapView.MapMode Mode
+        private readonly CommonLib.AwesomeService.IGeoDataService _service;
+
+        private MapMode _mode = MapMode.Standard;
+        public MapMode Mode
         {
             get { return _mode; }
             set
@@ -36,6 +39,16 @@ namespace MapLib.ViewModel
         }
 
         public ObservableCollection<CommonLib.AwesomeService.IssueItem> Issues { get; set; }
+
+        public MapViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
+            : base(messenger)
+        {
+            _service = service;
+            Issues = new ObservableCollection<CommonLib.AwesomeService.IssueItem>();
+            Init();
+            CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
+            MessengerInstance.Register<MapMode>(this, ChangeMapMode);
+        }
 
         bool Microsoft.Practices.Prism.Regions.INavigationAware.IsNavigationTarget(Microsoft.Practices.Prism.Regions.NavigationContext navigationContext)
         {
@@ -79,14 +92,9 @@ namespace MapLib.ViewModel
             }));
         }
 
-        private readonly CommonLib.AwesomeService.IGeoDataService _service;
-        public MapViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
-            : base(messenger)
+        private void ChangeMapMode(MapMode mode)
         {
-            _service = service;
-            Issues = new ObservableCollection<CommonLib.AwesomeService.IssueItem>();
-            Init();
-            CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
+            Mode = mode;
         }
     }
 

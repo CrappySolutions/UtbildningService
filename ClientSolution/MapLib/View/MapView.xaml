@@ -12,7 +12,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="map:Pushpin">
-                        <Ellipse Width="32" Height="32" Fill="Green" Stroke="Black" StrokeThickness="1" Opacity="0.6" />
+                        <Image Source="pack://application:,,,/MapLib;component/Resouces/warning.png"></Image>
+                        <!--<Ellipse Width="32" Height="32" Fill="Green" Stroke="Black" StrokeThickness="1" Opacity="0.6" />-->
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
