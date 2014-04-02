@@ -27,7 +27,11 @@ namespace IssueLib.ViewModel
 
         private void AddGeom(CommonLib.IssueGeom geom)
         {
-            _issueItem.WKT = Newtonsoft.Json.JsonConvert.SerializeObject(geom);
+            _issueItem.Geom = new CommonLib.AwesomeService.Geom
+            {
+                Type = geom.type,
+                Coordinates = Newtonsoft.Json.JsonConvert.SerializeObject(geom.coordinates)
+            };
         }
 
         private async void Init()

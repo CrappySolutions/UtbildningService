@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Mapping.ByCode.Conformist;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,18 +12,32 @@ namespace Ut.Data
     public class IssueItem
     {
         [DataMember]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
         [DataMember]
-        public string Title { get; set; }
+        public virtual string Title { get; set; }
 
         [DataMember]
-        public string Content { get; set; }
+        public virtual string Content { get; set; }
+        
+        [DataMember]
+        public virtual Geom Geom { get; set; }
 
         [DataMember]
-        public string WKT { get; set; }
+        public virtual DateTime Created { get; set; }
+    }
 
-        [DataMember]
-        public DateTime Created { get; set; }
+    internal class IssueItemMapping : ClassMapping<IssueItem>
+    {
+        public IssueItemMapping()
+        {
+            Schema("dbo");
+            Table("Issue");
+            Id(x => x.Id, m => m.Generator(NHibernate.Mapping.ByCode.Generators.Native));
+            Property(x => x.Title);
+            Property(x => x.Content);
+            Property(x => x.Created);
+            ManyToOne(x => x.Geom, mapper => mapper.Column("GeomId"));
+        }
     }
 }

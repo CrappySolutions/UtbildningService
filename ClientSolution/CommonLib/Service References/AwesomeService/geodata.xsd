@@ -4,12 +4,20 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Geom" nillable="true" type="tns:Geom" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="WKT" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="IssueItem" nillable="true" type="tns:IssueItem" />
+  <xs:complexType name="Geom">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coordinates" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Geom" nillable="true" type="tns:Geom" />
   <xs:complexType name="ArrayOfIssueItem">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueItem" nillable="true" type="tns:IssueItem" />

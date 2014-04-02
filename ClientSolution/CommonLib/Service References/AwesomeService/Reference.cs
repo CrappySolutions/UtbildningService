@@ -29,13 +29,13 @@ namespace CommonLib.AwesomeService {
         private System.DateTime CreatedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CommonLib.AwesomeService.Geom GeomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string WKTField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -74,6 +74,19 @@ namespace CommonLib.AwesomeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public CommonLib.AwesomeService.Geom Geom {
+            get {
+                return this.GeomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GeomField, value) != true)) {
+                    this.GeomField = value;
+                    this.RaisePropertyChanged("Geom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -99,15 +112,79 @@ namespace CommonLib.AwesomeService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string WKT {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Geom", Namespace="http://schemas.datacontract.org/2004/07/Ut.Data")]
+    [System.SerializableAttribute()]
+    public partial class Geom : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CoordinatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.WKTField;
+                return this.extensionDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.WKTField, value) != true)) {
-                    this.WKTField = value;
-                    this.RaisePropertyChanged("WKT");
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Coordinates {
+            get {
+                return this.CoordinatesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CoordinatesField, value) != true)) {
+                    this.CoordinatesField = value;
+                    this.RaisePropertyChanged("Coordinates");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
                 }
             }
         }
