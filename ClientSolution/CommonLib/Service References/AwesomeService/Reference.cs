@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WPFApplication.DataService {
+namespace CommonLib.AwesomeService {
     using System.Runtime.Serialization;
     using System;
     
@@ -123,20 +123,20 @@ namespace WPFApplication.DataService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DataService.IGeoDataService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="AwesomeService.IGeoDataService")]
     public interface IGeoDataService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/AddIssue", ReplyAction="http://tempuri.org/IGeoDataService/AddIssueResponse")]
-        bool AddIssue(WPFApplication.DataService.IssueItem issue);
+        bool AddIssue(CommonLib.AwesomeService.IssueItem issue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/AddIssue", ReplyAction="http://tempuri.org/IGeoDataService/AddIssueResponse")]
-        System.Threading.Tasks.Task<bool> AddIssueAsync(WPFApplication.DataService.IssueItem issue);
+        System.Threading.Tasks.Task<bool> AddIssueAsync(CommonLib.AwesomeService.IssueItem issue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/UpdateIssue", ReplyAction="http://tempuri.org/IGeoDataService/UpdateIssueResponse")]
-        bool UpdateIssue(WPFApplication.DataService.IssueItem issue);
+        bool UpdateIssue(CommonLib.AwesomeService.IssueItem issue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/UpdateIssue", ReplyAction="http://tempuri.org/IGeoDataService/UpdateIssueResponse")]
-        System.Threading.Tasks.Task<bool> UpdateIssueAsync(WPFApplication.DataService.IssueItem issue);
+        System.Threading.Tasks.Task<bool> UpdateIssueAsync(CommonLib.AwesomeService.IssueItem issue);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/RemoveIssueBy", ReplyAction="http://tempuri.org/IGeoDataService/RemoveIssueByResponse")]
         bool RemoveIssueBy(int issueId);
@@ -145,25 +145,25 @@ namespace WPFApplication.DataService {
         System.Threading.Tasks.Task<bool> RemoveIssueByAsync(int issueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/GetAllIssues", ReplyAction="http://tempuri.org/IGeoDataService/GetAllIssuesResponse")]
-        WPFApplication.DataService.IssueItem[] GetAllIssues();
+        CommonLib.AwesomeService.IssueItem[] GetAllIssues();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/GetAllIssues", ReplyAction="http://tempuri.org/IGeoDataService/GetAllIssuesResponse")]
-        System.Threading.Tasks.Task<WPFApplication.DataService.IssueItem[]> GetAllIssuesAsync();
+        System.Threading.Tasks.Task<CommonLib.AwesomeService.IssueItem[]> GetAllIssuesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/GetItemBy", ReplyAction="http://tempuri.org/IGeoDataService/GetItemByResponse")]
-        WPFApplication.DataService.IssueItem GetItemBy(int issueId);
+        CommonLib.AwesomeService.IssueItem GetItemBy(int issueId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeoDataService/GetItemBy", ReplyAction="http://tempuri.org/IGeoDataService/GetItemByResponse")]
-        System.Threading.Tasks.Task<WPFApplication.DataService.IssueItem> GetItemByAsync(int issueId);
+        System.Threading.Tasks.Task<CommonLib.AwesomeService.IssueItem> GetItemByAsync(int issueId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGeoDataServiceChannel : WPFApplication.DataService.IGeoDataService, System.ServiceModel.IClientChannel {
+    public interface IGeoDataServiceChannel : CommonLib.AwesomeService.IGeoDataService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GeoDataServiceClient : System.ServiceModel.ClientBase<WPFApplication.DataService.IGeoDataService>, WPFApplication.DataService.IGeoDataService {
+    public partial class GeoDataServiceClient : System.ServiceModel.ClientBase<CommonLib.AwesomeService.IGeoDataService>, CommonLib.AwesomeService.IGeoDataService {
         
         public GeoDataServiceClient() {
         }
@@ -184,19 +184,19 @@ namespace WPFApplication.DataService {
                 base(binding, remoteAddress) {
         }
         
-        public bool AddIssue(WPFApplication.DataService.IssueItem issue) {
+        public bool AddIssue(CommonLib.AwesomeService.IssueItem issue) {
             return base.Channel.AddIssue(issue);
         }
         
-        public System.Threading.Tasks.Task<bool> AddIssueAsync(WPFApplication.DataService.IssueItem issue) {
+        public System.Threading.Tasks.Task<bool> AddIssueAsync(CommonLib.AwesomeService.IssueItem issue) {
             return base.Channel.AddIssueAsync(issue);
         }
         
-        public bool UpdateIssue(WPFApplication.DataService.IssueItem issue) {
+        public bool UpdateIssue(CommonLib.AwesomeService.IssueItem issue) {
             return base.Channel.UpdateIssue(issue);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateIssueAsync(WPFApplication.DataService.IssueItem issue) {
+        public System.Threading.Tasks.Task<bool> UpdateIssueAsync(CommonLib.AwesomeService.IssueItem issue) {
             return base.Channel.UpdateIssueAsync(issue);
         }
         
@@ -208,19 +208,19 @@ namespace WPFApplication.DataService {
             return base.Channel.RemoveIssueByAsync(issueId);
         }
         
-        public WPFApplication.DataService.IssueItem[] GetAllIssues() {
+        public CommonLib.AwesomeService.IssueItem[] GetAllIssues() {
             return base.Channel.GetAllIssues();
         }
         
-        public System.Threading.Tasks.Task<WPFApplication.DataService.IssueItem[]> GetAllIssuesAsync() {
+        public System.Threading.Tasks.Task<CommonLib.AwesomeService.IssueItem[]> GetAllIssuesAsync() {
             return base.Channel.GetAllIssuesAsync();
         }
         
-        public WPFApplication.DataService.IssueItem GetItemBy(int issueId) {
+        public CommonLib.AwesomeService.IssueItem GetItemBy(int issueId) {
             return base.Channel.GetItemBy(issueId);
         }
         
-        public System.Threading.Tasks.Task<WPFApplication.DataService.IssueItem> GetItemByAsync(int issueId) {
+        public System.Threading.Tasks.Task<CommonLib.AwesomeService.IssueItem> GetItemByAsync(int issueId) {
             return base.Channel.GetItemByAsync(issueId);
         }
     }

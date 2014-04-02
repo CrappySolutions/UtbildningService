@@ -22,7 +22,7 @@ namespace WPFApplication
         {
             base.InitializeShell();
             Container.RegisterType<IMessenger, Messenger>(new ContainerControlledLifetimeManager());
-            Container.RegisterType<DataService.IGeoDataService, DataService.GeoDataServiceClient>(new InjectionConstructor());
+            Container.RegisterType<CommonLib.AwesomeService.IGeoDataService, CommonLib.AwesomeService.GeoDataServiceClient>(new InjectionConstructor());
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
         }

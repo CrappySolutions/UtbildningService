@@ -104,11 +104,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstraper.cs" />
-    <Compile Include="Service References\DataService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
@@ -137,19 +132,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\DataService\geodata.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DataService\geodata1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DataService\geodata2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\DataService\GeoDataService.wsdl" />
-    <None Include="Service References\DataService\WPFApplication.DataService.IssueItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -161,30 +143,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\DataService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DataService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DataService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\DataService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\quit.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\map.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommonLib\CommonLib.csproj">
+      <Project>{0cc2d8fc-21b2-43fd-a09e-5f45270622e6}</Project>
+      <Name>CommonLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IssueLib\IssueLib.csproj">
       <Project>{29af33d2-d07d-4e67-845f-946e79b1d879}</Project>
       <Name>IssueLib</Name>
