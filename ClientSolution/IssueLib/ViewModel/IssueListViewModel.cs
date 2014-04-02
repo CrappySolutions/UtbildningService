@@ -15,6 +15,7 @@ namespace IssueLib.ViewModel
         {
             _service = service;
             Init();
+            CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
         }
 
         private async void Init()
@@ -34,6 +35,14 @@ namespace IssueLib.ViewModel
             {
                 
             }
+        }
+
+        private void IssueCreated(object sender, CommonLib.IssueRepository.IssueEventArgs args)
+        {
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(() =>
+            {
+                Add(args.Issue);
+            }));
         }
     }
 
