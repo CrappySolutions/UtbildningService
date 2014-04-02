@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFApplication", "WPFApplic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapLib", "MapLib\MapLib.csproj", "{3E222C30-BC92-48FC-8E00-BAC42D1409BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueLib", "IssueLib\IssueLib.csproj", "{29AF33D2-D07D-4E67-845F-946E79B1D879}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,16 @@ Global
 		{3E222C30-BC92-48FC-8E00-BAC42D1409BF}.Release|ARM.ActiveCfg = Release|Any CPU
 		{3E222C30-BC92-48FC-8E00-BAC42D1409BF}.Release|x64.ActiveCfg = Release|Any CPU
 		{3E222C30-BC92-48FC-8E00-BAC42D1409BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Release|ARM.ActiveCfg = Release|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Release|x64.ActiveCfg = Release|Any CPU
+		{29AF33D2-D07D-4E67-845F-946E79B1D879}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

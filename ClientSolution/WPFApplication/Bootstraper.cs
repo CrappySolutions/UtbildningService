@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Modularity;
+﻿using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
 using System;
@@ -20,7 +21,7 @@ namespace WPFApplication
         protected override void InitializeShell()
         {
             base.InitializeShell();
-         //   Container.RegisterType<INavigationResolver, NavigationResolver>();
+            Container.RegisterType<IMessenger, Messenger>(new ContainerControlledLifetimeManager());
             Container.RegisterType<DataService.IGeoDataService, DataService.GeoDataServiceClient>(new InjectionConstructor());
             App.Current.MainWindow = (Window)Shell;
             App.Current.MainWindow.Show();
@@ -30,7 +31,7 @@ namespace WPFApplication
         {
             ModuleCatalog catalog = new ModuleCatalog();
             catalog.AddModule(typeof(MapLib.MapModule));
-            //catalog.AddModule(typeof(Issues.IssuesModule));
+            catalog.AddModule(typeof(IssueLib.IssueModule));
             return catalog;
         }
     }

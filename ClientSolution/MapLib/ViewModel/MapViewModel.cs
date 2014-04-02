@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace MapLib.ViewModel
         }
 
         void Microsoft.Practices.Prism.Regions.INavigationAware.OnNavigatedTo(Microsoft.Practices.Prism.Regions.NavigationContext navigationContext)
+        {
+
+        }
+
+        public MapViewModel(IMessenger messenger)
+            : base(messenger)
         {
 
         }
