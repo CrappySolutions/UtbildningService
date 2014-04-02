@@ -9,7 +9,7 @@ namespace IssueLib.ViewModel
 {
     public class IssueListViewModel : ViewModelBase, IIssueListViewModel
     {
-
+        
     }
 
     public interface IIssueListViewModel
