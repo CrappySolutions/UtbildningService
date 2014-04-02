@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,8 +15,10 @@ namespace IssueLib.ViewModel
     public class IssueListViewModel : ObservableCollection<CommonLib.AwesomeService.IssueItem>, IIssueListViewModel
     {
         private readonly CommonLib.AwesomeService.IGeoDataService _service;
-        public IssueListViewModel(CommonLib.AwesomeService.IGeoDataService service)
+        private readonly IMessenger _messenger;
+        public IssueListViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
         {
+            _messenger = messenger;
             _service = service;
             Init();
             CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
@@ -43,14 +46,8 @@ namespace IssueLib.ViewModel
         private CommonLib.AwesomeService.IssueItem _issueItem = new CommonLib.AwesomeService.IssueItem();
         public CommonLib.AwesomeService.IssueItem IssueItem
         {
-            get
-            {
-                return _issueItem;
-            }
-            set
-            {
-                _issueItem = value;
-            }
+            get {return _issueItem;}
+            set{_issueItem = value;}
         }
 
         private ICommand _addIssueCommand;
@@ -68,6 +65,23 @@ namespace IssueLib.ViewModel
 
                 }
                 return _addIssueCommand;
+            }
+        }
+
+        private ICommand _addPositionCommand;
+        public ICommand AddPositionCommand
+        {
+            get
+            {
+                if (_addPositionCommand == null)
+                {
+                    _addPositionCommand = new RelayCommand(() =>
+                    {
+                       
+                    });
+
+                }
+                return _addPositionCommand;
             }
         }
 
