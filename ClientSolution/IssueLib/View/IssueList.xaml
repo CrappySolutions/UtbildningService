@@ -51,6 +51,7 @@
 
             <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding IssueItem.Title, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding IssueItem.Content, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Row="3" Grid.Column="0" Content="SetPos" Command="{Binding AddPositionCommand}"/>
             <Button Grid.Row="3" Grid.Column="1" Content="Add" Command="{Binding AddIssueCommand}"/>
         </Grid>
         

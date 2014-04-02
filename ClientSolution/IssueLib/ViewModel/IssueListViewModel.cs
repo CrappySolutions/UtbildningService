@@ -19,9 +19,15 @@ namespace IssueLib.ViewModel
         public IssueListViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
         {
             _messenger = messenger;
+            _messenger.Register<CommonLib.IssueGeom>(this, AddGeom);
             _service = service;
             Init();
             CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
+        }
+
+        private void AddGeom(CommonLib.IssueGeom geom)
+        {
+            _issueItem.WKT = Newtonsoft.Json.JsonConvert.SerializeObject(geom);
         }
 
         private async void Init()
@@ -59,6 +65,7 @@ namespace IssueLib.ViewModel
                 {
                     _addIssueCommand = new RelayCommand(() =>
                     {
+                        _issueItem.Created = DateTime.Now;
                         _service.AddIssue(_issueItem);
                         _issueItem = new CommonLib.AwesomeService.IssueItem();
                     });
@@ -77,7 +84,7 @@ namespace IssueLib.ViewModel
                 {
                     _addPositionCommand = new RelayCommand(() =>
                     {
-                       
+                        _messenger.Send<CommonLib.MapMode>(CommonLib.MapMode.Positionate);
                     });
 
                 }
