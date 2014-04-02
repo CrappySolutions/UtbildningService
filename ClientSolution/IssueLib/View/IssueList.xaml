@@ -15,7 +15,19 @@
     </UserControl.Resources>
     <ListView ItemsSource="{Binding Source={StaticResource Issues}}"
               DisplayMemberPath="Title"
-              IsSynchronizedWithCurrentItem="True">
-        
+              IsSynchronizedWithCurrentItem="True"
+              AlternationCount="2"
+              HorizontalContentAlignment="Stretch"
+              BorderThickness="0">
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="Padding" Value="2,4" />
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                        <Setter Property="Background" Value="LightBlue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ListView.ItemContainerStyle>
     </ListView>
 </UserControl>

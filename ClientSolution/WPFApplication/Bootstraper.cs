@@ -30,8 +30,8 @@ namespace WPFApplication
         protected override Microsoft.Practices.Prism.Modularity.IModuleCatalog CreateModuleCatalog()
         {
             ModuleCatalog catalog = new ModuleCatalog();
-            catalog.AddModule(typeof(MapLib.MapModule));
             catalog.AddModule(typeof(IssueLib.IssueModule));
+            catalog.AddModule(typeof(MapLib.MapModule));
             catalog.AddModule(typeof(NavigationLib.NavigationModule));
             return catalog;
         }
