@@ -1,4 +1,5 @@
-﻿using MapControl;
+﻿using CommonLib;
+using MapControl;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -22,13 +23,6 @@ namespace MapLib.View
     /// </summary>
     public partial class MapView : UserControl
     {
-
-        public enum MapMode
-        {
-            Standard = 0,
-            Positionate = 1
-        }
-
         public MapMode Mode
         {
             get { return (MapMode)GetValue(ModeProperty); }
