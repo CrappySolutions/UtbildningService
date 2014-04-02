@@ -74,12 +74,42 @@ namespace MapLib.View
 
 
 
-       
+        public INotifyCollectionChanged IssueCollection
+        {
+            get { return (INotifyCollectionChanged)GetValue(IssueCollectionProperty); }
+            set { SetValue(IssueCollectionProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IssueCollection.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IssueCollectionProperty =
+            DependencyProperty.Register("IssueCollection", typeof(INotifyCollectionChanged), typeof(MapView), new PropertyMetadata(null, OnCollectionChanged));
+
+        private static void OnCollectionChanged(DependencyObject sender, DependencyPropertyChangedEventArgs args)
+        {
+            ((INotifyCollectionChanged)args.NewValue).CollectionChanged += ((MapView)sender).IssueCollectionChanged;
+        }
+
+        private void IssueCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            var convert = new Converters.IssuePushPinConverter();
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    foreach (CommonLib.AwesomeService.IssueItem item in e.NewItems)
+                    {
+                        var pin = (UIElement)convert.Convert(item, null, null, null);
+                        map.Children.Add(pin);
+                    }
+                    break;
+            }  
+        }
+
         public MapView(ViewModel.IMapViewModel mapviewmodel)
         {
             InitializeComponent();
             DataContext = mapviewmodel;
             this.SetBinding(ModeProperty, new Binding("Mode") { Mode = BindingMode.TwoWay, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
+            this.SetBinding(IssueCollectionProperty, new Binding("Issues"));
             this.SetBinding(PositionateCommandProperty, new Binding("PositionateCommand"));
             this.SetBinding(MouseLocationProperty, new Binding("MouseLocation") { Mode = BindingMode.OneWayToSource, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
             map.PreviewMouseMove += (a, b) => MouseLocation = map.ViewportPointToLocation(b.GetPosition(map));

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CommonLib
 {
-    public class IssueRepository : AwesomeService.IGeoDataServiceCallback
+    public class IssueRepository 
+        : AwesomeService.IGeoDataServiceCallback
     {
         public sealed class IssueEventArgs: EventArgs
 	    {
@@ -23,7 +24,7 @@ namespace CommonLib
         private static IssueRepository _instance;
         public static IssueRepository Current
         {
-            get { return _instance ?? (_instance = new IssueRepository());}
+            get { return _instance ?? (_instance = new IssueRepository()); }
         }
 
         private IssueRepository()
@@ -31,7 +32,8 @@ namespace CommonLib
 
         }
 
-        public void IssueAdded(AwesomeService.IssueItem issue)
+
+        void AwesomeService.IGeoDataServiceCallback.IssueAdded(AwesomeService.IssueItem issue)
         {
             if (IssueCreated != null)
                 IssueCreated(this, new IssueEventArgs(issue));

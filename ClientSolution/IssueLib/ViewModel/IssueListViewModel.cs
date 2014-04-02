@@ -18,6 +18,7 @@ namespace IssueLib.ViewModel
         {
             _service = service;
             Init();
+            CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
         }
 
         private async void Init()
@@ -38,7 +39,6 @@ namespace IssueLib.ViewModel
                 
             }
         }
-
 
         private CommonLib.AwesomeService.IssueItem _issueItem = new CommonLib.AwesomeService.IssueItem();
         public CommonLib.AwesomeService.IssueItem IssueItem
@@ -69,6 +69,14 @@ namespace IssueLib.ViewModel
                 }
                 return _addIssueCommand;
             }
+        }
+
+        private void IssueCreated(object sender, CommonLib.IssueRepository.IssueEventArgs args)
+        {
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(() =>
+            {
+                Add(args.Issue);
+            }));
         }
     }
 

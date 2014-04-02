@@ -4,6 +4,7 @@ using MapControl;
 using Microsoft.Practices.Prism.Regions;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,8 @@ namespace MapLib.ViewModel
                 RaisePropertyChanged(() => MouseLocation);
             }
         }
-        
+
+        public ObservableCollection<CommonLib.AwesomeService.IssueItem> Issues { get; set; }
 
         bool Microsoft.Practices.Prism.Regions.INavigationAware.IsNavigationTarget(Microsoft.Practices.Prism.Regions.NavigationContext navigationContext)
         {
@@ -50,10 +52,41 @@ namespace MapLib.ViewModel
 
         }
 
-        public MapViewModel(IMessenger messenger)
+        private async void Init()
+        {
+            try
+            {
+                var issues = await _service.GetAllIssuesAsync();
+                foreach (var issue in issues)
+                {
+                    await System.Windows.Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(() =>
+                    {
+                        Issues.Add(issue);
+                    }));
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void IssueCreated(object sender, CommonLib.IssueRepository.IssueEventArgs args)
+        {
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Background, new Action(() =>
+            {
+                Issues.Add(args.Issue);
+            }));
+        }
+
+        private readonly CommonLib.AwesomeService.IGeoDataService _service;
+        public MapViewModel(CommonLib.AwesomeService.IGeoDataService service, IMessenger messenger)
             : base(messenger)
         {
-
+            _service = service;
+            Issues = new ObservableCollection<CommonLib.AwesomeService.IssueItem>();
+            Init();
+            CommonLib.IssueRepository.Current.IssueCreated += IssueCreated;
         }
     }
 
