@@ -36,9 +36,5 @@ namespace WPFApplication
         }
     }
 
-    public static class RegionNames
-    {
-        public const string HEADER = "Header";
-        public const string MAIN = "Main";
-    }
+   
 }

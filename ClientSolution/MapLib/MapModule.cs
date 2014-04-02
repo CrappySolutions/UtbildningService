@@ -21,7 +21,7 @@ namespace MapLib
 
         public void Initialize()
         {
-            _regionManager.RegisterViewWithRegion("Main", typeof(View.MapView));
+            _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.MAIN, typeof(View.MapView));
         }
     }
 }
