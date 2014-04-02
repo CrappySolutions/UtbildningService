@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using NavigationLib.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,8 @@ namespace NavigationLib
 
     public void Initialize()
     {
-
+        _container.RegisterType<INavigationViewModel, NavigationViewModel>(new ContainerControlledLifetimeManager());
+        _regionManager.RegisterViewWithRegion(CommonLib.RegionNames.HEADER, typeof(View.NavigationView));
     }
   }
 }
