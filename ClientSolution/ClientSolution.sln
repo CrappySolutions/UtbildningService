@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IssueLib", "IssueLib\IssueL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLib", "CommonLib\CommonLib.csproj", "{0CC2D8FC-21B2-43FD-A09E-5F45270622E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavigationLib", "NavigationLib\NavigationLib.csproj", "{C7CD760A-72F4-4967-AE91-7DF7964553B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,16 @@ Global
 		{0CC2D8FC-21B2-43FD-A09E-5F45270622E6}.Release|ARM.ActiveCfg = Release|Any CPU
 		{0CC2D8FC-21B2-43FD-A09E-5F45270622E6}.Release|x64.ActiveCfg = Release|Any CPU
 		{0CC2D8FC-21B2-43FD-A09E-5F45270622E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Release|x64.ActiveCfg = Release|Any CPU
+		{C7CD760A-72F4-4967-AE91-7DF7964553B2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

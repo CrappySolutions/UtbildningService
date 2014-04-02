@@ -161,6 +161,10 @@
       <Project>{3e222c30-bc92-48fc-8e00-bac42d1409bf}</Project>
       <Name>MapLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NavigationLib\NavigationLib.csproj">
+      <Project>{c7cd760a-72f4-4967-ae91-7df7964553b2}</Project>
+      <Name>NavigationLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
